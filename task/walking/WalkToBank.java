@@ -29,8 +29,14 @@ public class WalkToBank extends Task {
     @Override
     public void execute() {
         Tile[] path = Gui.loc.getBankPath();
-        ctx.movement.newTilePath(path);
+        ctx.movement.newTilePath(path).randomize(1, 2).traverse();
         SMinerOS.status = "Walking to Bank";
+        Condition.wait(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                return ctx.movement.distance(ctx.players.local(), ctx.movement.destination()) < 14;
+            }
+        }, 250, 20);
 
 
 

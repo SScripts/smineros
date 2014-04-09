@@ -4,7 +4,7 @@ package smineros.data;
 public enum Rock {
 
     TIN( new int[]{20955, 20953, 20954}, 439 ),
-   COPPER( new int[]{145, 457, 755}, 436),
+    COPPER( new int[]{145, 457, 755}, 436),
     CLAY(new int[]{15505,15503, 15504}, 434),
     IRON( new int[]{11956,11955, 11954, 37307, 37309, 37308}, 440),
     COAL( new int[]{11931, 11932, 11930}, 453),

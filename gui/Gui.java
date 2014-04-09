@@ -12,7 +12,6 @@ import org.powerbot.script.rt4.ClientAccessor;
 import org.powerbot.script.rt4.ClientContext;
 import smineros.data.Master;
 import smineros.SMinerOS;
-import smineros.task.banking.CloseBank;
 import smineros.task.banking.Deposit;
 import smineros.task.banking.OpenBank;
 import smineros.task.drop.Drop;
@@ -67,7 +66,6 @@ public class Gui extends ClientAccessor {
                 synchronized (tasks) {
                     tasks.add(new Deposit(ctx));
                     tasks.add(new OpenBank(ctx));
-                    tasks.add(new CloseBank(ctx));
                     tasks.add(new Mine(ctx));
                     tasks.add(new WalkToBank(ctx));
                     tasks.add(new WalkToRock(ctx));

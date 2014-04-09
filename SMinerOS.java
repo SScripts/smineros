@@ -3,15 +3,10 @@ package smineros;
 import org.powerbot.script.PaintListener;
 import org.powerbot.script.PollingScript;
 import org.powerbot.script.Script;
-import org.powerbot.script.rt4.ClientContext;
 import smineros.gui.Gui;
 import smineros.task.Task;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 import java.util.*;
 import java.util.List;
 
