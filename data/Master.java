@@ -7,8 +7,8 @@ import org.powerbot.script.Tile;
 public enum Master {
 
 
-    VARROCK_TIN(Path.VAR, Rock.TIN, Areas.VARO, Bank.BOVAR),
-    VARROCK_IRON(Path.VAR, Rock.IRON, Areas.VARO, Bank.BOVAR),
+    VARROCK_TIN(Path.VAR, Rock.TIN, Areas.VARO, Bank.BOVAR);
+ /*   VARROCK_IRON(Path.VAR, Rock.IRON, Areas.VARO, Bank.BOVAR),
     VARROCK_CLAY(Path.VAR, Rock.CLAY, Areas.VARO, Bank.BOVAR),
     VARROCK_SILVER(Path.VAR, Rock.SILVER, Areas.VARO, Bank.BOVAR),
     BARBARIAN_VILLAGE_COAL(Path.BAR, Rock.COAL, Areas.BARB, Bank.BOEDG),
@@ -20,7 +20,7 @@ public enum Master {
     AL_KHARID_COAL(Path.ALK_TWO, Rock.COAL, Areas.AHLK_TWO, Bank.BOALK),
     AL_KHARID_MITHRIL(Path.ALK_TWO, Rock.MITHRIL, Areas.AHLK_TWO, Bank.BOALK),
     AL_KHARID_SILVER(Path.ALK_TWO, Rock.SILVER, Areas.AHLK_TWO, Bank.BOALK),
-    AL_KHARID_ADAMANTIT(Path.ALK_THR, Rock.ADAMANT, Areas.AHLK_THREE, Bank.BOALK);
+    AL_KHARID_ADAMANTIT(Path.ALK_THR, Rock.ADAMANT, Areas.AHLK_THREE, Bank.BOALK); */
 
     private final Path path;
     private final Rock rock;

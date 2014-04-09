@@ -3,15 +3,15 @@ package smineros.data;
 
 public enum Rock {
 
-    TIN( new int[]{11959, 11957, 11958, 11934, 11933, 11935}, 438 ),
-    COPPER( new int[]{145, 457, 755}, 436),
+    TIN( new int[]{20955, 20953, 20954}, 439 ),
+   COPPER( new int[]{145, 457, 755}, 436),
     CLAY(new int[]{15505,15503, 15504}, 434),
     IRON( new int[]{11956,11955, 11954, 37307, 37309, 37308}, 440),
     COAL( new int[]{11931, 11932, 11930}, 453),
     SILVER( new int[]{11950, 11949, 37306, 37304, 37305},442),
     GOLD( new int[]{37312, 37310}, 444),
     MITHRIL( new int[]{11944,11942}, 447),
-    ADAMANT( new int[]{11939,11941}, 449);
+    ADAMANT( new int[]{11939,11941}, 449); 
 
     private final int[] OBJECT_ID;
     private final int ore_ID;

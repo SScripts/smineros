@@ -43,10 +43,10 @@ public enum Areas {
                     new Tile(3267, 3165, 0)
             )),
     VARO(new Area(
-            new Tile(3180, 3441, 0),
-            new Tile(3180, 3432, 0),   //Area rocks
-            new Tile(3186, 3432, 0),
-            new Tile(3186, 3441, 0)
+            new Tile(3178, 3378, 0),
+            new Tile(3170, 3362, 0),   //Area rocks
+            new Tile(3183, 3362, 0),
+            new Tile(3185, 3379, 0)
 
     ),new Area(
             new Tile(3180, 3441, 0),

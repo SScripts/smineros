@@ -1,10 +1,11 @@
 package smineros;
 
-
-import org.powerbot.script.*;
+import org.powerbot.script.PaintListener;
+import org.powerbot.script.PollingScript;
+import org.powerbot.script.Script;
+import org.powerbot.script.rt4.ClientContext;
 import smineros.gui.Gui;
 import smineros.task.Task;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,12 +17,11 @@ import java.util.List;
 
 @Script.Manifest(description = "OS Miner, Mines at some Locations", name = "SMiner OS", properties = "topic=0;client=4;")
 
-public class SMinerOS extends PollingScript<org.powerbot.script.rt4.ClientContext>  implements PaintListener, MouseListener, MessageListener {
+public class SMinerOS extends PollingScript<org.powerbot.script.rt4.ClientContext> implements PaintListener {
 
     public List<Task> tasks = Collections.synchronizedList(new ArrayList<Task>());
 
-    private int mined;
-    private long startTime;
+
     public static boolean drop = false;
 
     public static String status = "Waiting for input";
@@ -29,7 +29,6 @@ public class SMinerOS extends PollingScript<org.powerbot.script.rt4.ClientContex
 
     @Override
     public void start() {
-        startTime = System.currentTimeMillis();
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -59,49 +58,7 @@ public class SMinerOS extends PollingScript<org.powerbot.script.rt4.ClientContex
     }
 
 
-    @Override
-    public void messaged(MessageEvent msg) {
-        if (msg.getMessage().startsWith("You manage to ")){
-            mined++;
-        }
-    }
-    boolean hide = false;
-    Point p;
-    Rectangle close = new Rectangle(10, 70, 170, 170);
-    Rectangle open = new Rectangle(10, 70, 170, 170);
 
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        p = e.getPoint();
-        if (close.contains(p) && !hide) {
-            hide = true;
-        } else if (open.contains(p) && hide) {
-            hide = false;
-        }
-    }
-
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
-
-    public int perHour(int value) {
-        return (int) ((value) * 3600000D / (System.currentTimeMillis() - startTime));
-    }
 
 
     public String formatTime(final long time) {
@@ -110,33 +67,16 @@ public class SMinerOS extends PollingScript<org.powerbot.script.rt4.ClientContex
     }
 
 
-    private final Font font = new Font("Arial", 1, 16);
-    private final Font mainfont = new Font("Arial", 1, 14);
 
     @Override
     public void repaint(Graphics g) {
 
-        if (!hide) {
-            final BufferedImage paint = downloadImage("http://i.imgur.com/YyPLAhA.png");
-            g.drawImage(paint, 0, 300, null);
-            Graphics2D d = (Graphics2D)g;
-            d.setPaint(Color.WHITE);
-            g.setFont(font);
-            g.drawString("" + SMinerOS.status, 210, 577);
-            g.setFont(mainfont);
-            g.drawString("" + formatTime(getTotalRuntime()), 203, 416);
-            g.drawString("" + mined, 223, 536);
-            g.drawString("HIDE PAINT", 30, 100);
-        }
-        else {
-            Graphics2D d = (Graphics2D)g;
-            d.setPaint(Color.BLACK);
-            g.setFont(mainfont);
-            g.drawString("SHOW PAINT", 30,100);
-        }
+      
+    	g.drawString("Status:" + status, 10, 100);
+        g.drawString("Runtime:" + formatTime(getTotalRuntime()), 10, 120);
         g.setColor(Color.WHITE);
-        g.drawLine(ctx.mouse.getLocation().x, ctx.mouse.getLocation().y - 5, ctx.mouse.getLocation().x, ctx.mouse.getLocation().y + 5);
-        g.drawLine(ctx.mouse.getLocation().x - 5, ctx.mouse.getLocation().y, ctx.mouse.getLocation().x + 5, ctx.mouse.getLocation().y);
+        g.drawLine(ctx.mouse.getLocation().x, ctx.mouse.getLocation().y - 10, ctx.mouse.getLocation().x, ctx.mouse.getLocation().y + 10);
+        g.drawLine(ctx.mouse.getLocation().x - 10, ctx.mouse.getLocation().y, ctx.mouse.getLocation().x + 10, ctx.mouse.getLocation().y);
     }
 
 
